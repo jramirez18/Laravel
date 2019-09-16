@@ -34,6 +34,8 @@ class UsersModuleTest extends TestCase
     /** @test */
     function creacion_nuevo_usuario()
     {
+        $this->withoutExceptionHandling();//esto permite visualizar los erroes 
+
         $response = $this->get('/usuarios/nuevo');
         $response->assertStatus(200);
         $response->assertSee('usuario Nuevo');
