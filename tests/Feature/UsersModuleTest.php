@@ -20,7 +20,9 @@ class UsersModuleTest extends TestCase
         $response = $this->get('/usuarios');
         $response->assertStatus(200);
         //y comprobamos que cuanto se cargue la url pueda verifica que exita el texto USUARIOS
-        $response->assertSee('USUARIOS');//USUARIOS hace referencia a que este texto debe de existir en la page principal
+        $response->assertSee('Listado de usuarios');//USUARIOS hace referencia a que este texto debe de existir en la page principal
+        $response->assertSee('Jorge');
+        $response->assertSee('Tommy');
     }
 
     /** @test */

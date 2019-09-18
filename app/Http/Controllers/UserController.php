@@ -10,7 +10,19 @@ class UserController extends Controller //es solo una clase
     //METODOS o acciones
     public function index()//pagina principal
     {
-        return 'USUARIOS';
+        $users=[
+            'Joel',
+            'Elena',
+            'Jorge',
+            'Tess',
+            'Tommy',
+        ];
+
+        return view('users', [
+            'users'=> $users,
+            'title'=> 'Listado de usuarios'
+
+        ]);//nombre de la vista relatica a la carpeta
 
     }
 
