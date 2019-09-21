@@ -10,13 +10,20 @@ class UserController extends Controller //es solo una clase
     //METODOS o acciones
     public function index()//pagina principal
     {
-        $users=[
-            'Joel',
-            'Elena',
-            'Jorge',
-            'Tess',
-            'Tommy',
-        ];
+        if (request()->has('empty')) {
+            # code...
+            $users=[];
+        }
+        else {
+            # code...
+            $users=[
+                'Joel',
+                'Elena',
+                'Jorge',
+                'Tess',
+                'Tommy',
+            ];
+        }
 
         return view('users', [
             'users'=> $users,

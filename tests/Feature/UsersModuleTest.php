@@ -13,7 +13,7 @@ class UsersModuleTest extends TestCase
      * para no colocar test en cada prueba lo colocamos aca
      */
     
-     function carga_lista_usuarios()
+     function muestra_lista_usuarios()
     {
         //Simulamos una peticion de tipo get a la URL de la direccion /usuarios 
         //y asi probar que esta URL carga correctamente
@@ -41,5 +41,18 @@ class UsersModuleTest extends TestCase
         $response = $this->get('/usuarios/nuevo');
         $response->assertStatus(200);
         $response->assertSee('usuario Nuevo');
+    }
+
+
+    /**
+     * @test
+     * para no colocar test en cada prueba lo colocamos aca
+     */
+    
+    function muestra_mensaje_si_la_lista_esta_vacia()
+    {
+        $response = $this->get('/usuarios?empty');
+        $response->assertStatus(200);
+        $response->assertSee('No hay usuarios registrados');
     }
 }
